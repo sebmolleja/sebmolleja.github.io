@@ -1,88 +1,225 @@
+/* Modern CSS for Co-op Work Reports */
 body {
     margin: 0;
     padding: 0;
-    font-family: Arial, Helvetica, sans-serif; 
-    background-color: #333;
-    color: #fff;
+    font-family: 'Segoe UI', Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
     display: flex;
-    scrollbar-width: thin;
-    scrollbar-color: transparent transparent;
-    overflow: scroll;
+    overflow-x: hidden;
 }
 
-/* Style the track and thumb for the scrollbar */
-body::-webkit-scrollbar {
-    width: 8px; /* Adjust the width as needed */
+/* Improved scrollbar styling */
+::-webkit-scrollbar {
+    width: 8px;
 }
 
-body::-webkit-scrollbar-thumb {
-    background-color: transparent;
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
 }
 
-body::-webkit-scrollbar-track {
-    background-color: transparent;
+::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
 }
 
+::-webkit-scrollbar-thumb:hover {
+    background: #a1a1a1;
+}
+
+/* Modern sidebar styling */
 .navbar {
-    background-color: #000000;
-    width: 200px;
-    height: 100%;
-    padding: 20px;
+    background-color: #ffffff;
+    width: 240px;
+    height: 100vh;
+    padding: 2rem 1.5rem;
     position: fixed;
     left: 0;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+    z-index: 100;
 }
 
 .navbar h1 {
     margin: 0;
+    font-size: 1.5rem;
+    color: #2563eb;
+    font-weight: 600;
+}
+
+.navbar h3 {
+    margin: 0 0 1rem 0;
+    font-size: 0.9rem;
+    color: #64748b;
+    font-weight: 500;
 }
 
 .navbar ul {
     list-style: none;
     padding: 0;
-    margin-top: 20px; /* Added margin for spacing */
+    margin-top: 2rem;
 }
 
 .navbar li {
-    margin: 20px 0;
+    margin: 0.8rem 0;
 }
 
 .navbar a {
     text-decoration: none;
-    color: #fff;
+    color: #334155;
     position: relative;
-    transition: all 0.3s; /* Add transition for underline effect */
+    display: block;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    font-weight: 500;
 }
 
+.navbar a:hover {
+    background-color: #f1f5f9;
+    color: #2563eb;
+    transform: translateX(5px);
+}
+
+.navbar a.active {
+    background-color: #e0e7ff;
+    color: #2563eb;
+    border-left: 3px solid #2563eb;
+}
+
+/* Content area styling */
 .content {
     flex: 1;
-    padding: 20px;
-    margin-left: 260px; /* Adjust this value to match the width of the navbar + some additional space if needed */
+    padding: 2.5rem 3rem;
+    margin-left: 240px;
+    max-width: 900px;
+    line-height: 1.6;
 }
 
 .content h1 {
-    font-size: 40px;
+    font-size: 2.5rem;
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
 }
 
-.navbar li:hover {
-    transform: scale(1.1);
-    transition: transform 0.3s;
+.content h2 {
+    font-size: 1.75rem;
+    color: #2563eb;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 0.5rem;
 }
 
+.content h3 {
+    font-size: 1.35rem;
+    color: #334155;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.content h4 {
+    font-size: 1.1rem;
+    color: #64748b;
+    margin-top: 0;
+    margin-bottom: 2rem;
+    font-weight: 500;
+}
+
+.content p {
+    color: #475569;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+}
+
+/* Logo styling */
 #top-right-image {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 125px;
-    height: 125px;
-    z-index: 1;
+    position: fixed;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 80px;
+    height: 80px;
+    z-index: 90;
     transition: transform 0.3s ease;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 #top-right-image:hover {
-    transform: scale(1.1); /* Scale the image to make it "pop out" on hover */
+    transform: scale(1.05);
 }
 
+/* Goal cards styling */
+.content div[style*="align-items: center"] {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.content div[style*="align-items: center"]:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.content div[style*="align-items: center"] h3 {
+    color: #2563eb;
+    margin-top: 0;
+}
+
+.content div[style*="align-items: center"] p {
+    margin-bottom: 0;
+}
+
+/* Icon styling */
+.content i.fa-5x {
+    color: #2563eb;
+    margin-right: 1rem;
+    opacity: 0.9;
+}
+
+.content div[style*="display: flex; justify-content: center"] {
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+    }
+    
+    .navbar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        padding: 1rem;
+    }
+    
+    .content {
+        margin-left: 0;
+        padding: 1.5rem;
+    }
+    
+    #top-right-image {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        width: 60px;
+        height: 60px;
+    }
+    
+    .content h1 {
+        font-size: 2rem;
+        margin-top: 1rem;
+    }
+    
+    .content h2 {
+        font-size: 1.5rem;
+    }
+}
